@@ -1,0 +1,32 @@
+Report on the Neural Network Model
+
+Overview: 
+From Alphabet Soup’s business team, here we have a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization. We have used the features in the provided dataset to create a binary classifier that can predict whether applicants will be successful if funded by Alphabet Soup.
+
+Results
+
+1. Data Preprocessing: We loaded the data into panda dataframe and started with dropping the column EIN and NAME as they do not contribute to the predictive power of the model. Next, we looked at APPLICATION_TYPE value count for binnning. Then, chose a cutoff value and created a list of application types to be replaced used the variable name `application_types_to_replace` and replaced in dataframe. We went through the same process for CLASSIFICATION as well. After that, we coverted categorical data to numeric with `pd.get_dummies`. We separated our data into two parts: one with information we'll use to make predictions (like characteristics of funding applications) and another that tells us whether those predictions are right or wrong (if the funding was successful or not). Then, we divided the data into two more parts: one to teach our model (75% of the data) and one to test how well it learned (25% of the data). Finally, we checked the size of these parts to make sure everything was set up correctly.
+
+Scaling the data was like making sure all the numbers in our data were playing by the same rules. It was as if we had one set of numbers in inches and another in centimeters, which were in different units. So, we used a scaler to change them to a common unit, like meters, to make them match. First, we taught the scaler how our data looked with the training data, so it learned how to do the conversion. Then, we used that learning to adjust both the training and testing data, so they were all in the same format. This helped our model understand and work with the data better.
+
+2. Compile, Train, and Evaluate the Model : We chose to have two hidden layers in our neural network model. In the first hidden layer, we had 7 neurons, and in the second hidden layer, we had 14 neurons. We used these numbers because they seemed to work well in capturing patterns in our data. Both hidden layers used the ReLU activation function, which is like an on-off switch for neurons and helps our model learn. We aimed to achieve a specific level of model performance, and while we made progress, we needed more tuning to hit our target. We tried different settings for things like the number of neurons and learning rate to make the model better, and we also carefully prepared our data. It's an ongoing process of tweaking and improving to get the best results.
+
+
+Summary: 
+Our deep learning model did okay but didn't reach our goal. It's like trying to score a goal in soccer but missing the target a bit. To improve, we suggest trying a different model called XGBoost. It's good at solving problems like this and can be more accurate. It's like switching from one type of car to another because it might be faster and safer. So, we recommend giving XGBoost a try to see if it can do better at predicting funding success for Alphabet Soup.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
